@@ -215,7 +215,13 @@ document.getElementById("checkoutForm").addEventListener("submit",e=>{
  const orderRef="LX-"+Date.now().toString().slice(-8);
   lastOrder=`LuxeXLane order request (${orderRef})\n\n${lines}\n\nSubtotal: ${money(total())}\n\nName: ${f.get("name")}\nPhone: ${f.get("phone")}\nEmail: ${f.get("email")}\nAddress: ${f.get("address")}\nPayment preference: ${f.get("payment")}\n\nPlease confirm stock, shipping charges and secure payment options.`;
   adminOrders.unshift({id:orderRef,name:String(f.get("name")),phone:String(f.get("phone")),items:lines,total:total(),status:"Placed",createdAt:new Date().toISOString()});
-  saveAdminDemoData();
+  try {
+  if (typeof saveAdminDemoData === "function") {
+    saveAdminDemoData();
+  }
+} catch (error) {
+  console.error("Could not save demo order:", error);
+  }
  document.getElementById("orderText").textContent=`Your order request totals ${money(total())} before shipping. Your details are ready to send to LuxeXLane.`;
  document.getElementById("orderModal").classList.add("open");
 });
