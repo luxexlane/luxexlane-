@@ -72,7 +72,19 @@
 <footer class="footer"><div class="footer-inner"><div><div class="brand">LUXE<span>X</span>LANE</div><p>Jewellery, gifts and little things chosen with love. Thank you for shopping small.</p></div><div class="footer-links"><a href="#shop">Shop</a><a href="#story">Our story</a><a href="https://www.instagram.com/luxexlane/" target="_blank" rel="noreferrer">Instagram</a><a href="#" onclick="openCart();return false">Your bag</a></div></div><div class="copyright">© <span id="year"></span> LuxeXLane. Made with love. <span style="float:right">Privacy · Shipping · Returns (add your policies before launch)</span></div></footer>
 <div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()"><aside class="drawer" aria-label="Shopping bag"><div class="drawer-head"><h2>Your shopping bag</h2><button class="close" onclick="closeCart()" aria-label="Close bag">×</button></div><div id="cartItems" class="cart-items"></div><div id="cartSummary"></div><form id="checkoutForm" class="checkout-form" style="display:none"><h3>Delivery details</h3><label>Full name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Phone number<input name="phone" required type="tel" autocomplete="tel" placeholder="10-digit mobile number" pattern="[0-9+ ()-]{10,16}"></label><label>Email address<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label><label>Full delivery address<textarea name="address" required autocomplete="street-address" placeholder="House number, street, area, city, PIN code"></textarea></label><label>Payment preference<select name="payment" required><option value="">Choose payment method</option><option>UPI (payment link to be arranged)</option><option>Payment gateway (setup required)</option><option>Confirm payment options with seller</option></select></label><div class="notice">Demo checkout: this website does not collect or process money yet. A payment gateway account and secure integration are required for real online payments. Submitting will prepare an order request, not charge you.</div><button type="submit" class="primary">Place order request</button></form></aside></div>
 
-<button class="primary" onclick="sendWhatsApp()">Send order via Instagram ♡</button>
+
+<div class="modal-back" id="orderModal">
+  <div class="modal">
+    <div class="eyebrow">Thank you for choosing us</div>
+    <h2>Order request prepared ♡</h2>
+    <p id="orderText"></p>
+    <p>To complete your order, send the prepared details to LuxeXLane. Payment and delivery will need to be confirmed by the seller.</p>
+    <button class="primary" onclick="sendWhatsApp()">Send order via Instagram ♡</button>
+    <button class="secondary" onclick="copyOrder()">Copy order details</button>
+    <button class="secondary" onclick="finishOrder()">Done</button>
+  </div>
+</div>
+  
   
 <div class="admin-back" id="adminBack">
   <div class="admin-shell">
