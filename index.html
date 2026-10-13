@@ -193,7 +193,10 @@ function renderCart(){
 }
 function openCart(){document.getElementById("cartOverlay").classList.add("open");document.body.style.overflow="hidden";renderCart()}
 function closeCart(){document.getElementById("cartOverlay").classList.remove("open");document.body.style.overflow=""}
-function showCheckout(){document.getElementById("checkoutForm").style.display="grid";document.getElementById("checkoutForm").scrollIntoView({behavior:"smooth",block:"start"})}
+function showCheckout(){
+  document.getElementById("checkoutForm").style.display="grid";
+  document.getElementById("checkoutForm").scrollIntoView({behavior:"smooth",block:"start"});
+}
 document.getElementById("checkoutForm").addEventListener("submit",e=>{
  e.preventDefault();if(!cart.length)return;
  const f=new FormData(e.target);const lines=cart.map(p=>`${p.name} x ${p.qty} — ${money(p.price*p.qty)}`).join("\n");
